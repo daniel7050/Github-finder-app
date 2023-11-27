@@ -1,24 +1,27 @@
-import {useEffect} from 'react'
+import { useEffect } from "react";
 
 function UserResults() {
   useEffect(() => {
-    fetchUsers()
-  },[])
+    fetchUsers();
+  }, []);
 
   const fetchUsers = async () => {
-    const response = await fetch(`${import.meta.env.VITE_APP_GITHUB_URL}/users`, {
-      headers: {
-        Authorization: `token $ {
+    const response = await fetch(
+      `${import.meta.env.VITE_APP_GITHUB_URL}/users`,
+      {
+        headers: {
+          Authorization: `token $ {
           import.meta.env.VITE_APP_GITHUB_TOKEN
-        }`
+        }`,
+        },
       }
-    })
+    );
 
-    const data = await response.json()
+    const data = await response.json();
 
-    console.log(data)
-  }
-  return <div>User Results</div>
+    console.log(data);
+  };
+  return <div>User Results</div>;
 }
 
-export default UserResults
+export default UserResults;
